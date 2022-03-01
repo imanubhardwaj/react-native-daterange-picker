@@ -47,6 +47,7 @@ const DateRangePicker = ({
   buttonTextStyle,
   presetButtons,
   open,
+  onModalClose,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [weeks, setWeeks] = useState([]);
@@ -104,6 +105,11 @@ const DateRangePicker = ({
         endDate: startDate,
       });
     }
+  };
+
+  const _onBackDropClick = () => {
+    onModalClose && onModalClose();
+    _onClose();
   };
 
   const previousMonth = () => {
@@ -328,7 +334,7 @@ const DateRangePicker = ({
       <View style={mergedStyles.backdrop}>
         <TouchableWithoutFeedback
           style={styles.closeTrigger}
-          onPress={_onClose}
+          onPress={_onBackDropClick}
         >
           <View style={styles.closeContainer} />
         </TouchableWithoutFeedback>
