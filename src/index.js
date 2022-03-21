@@ -147,7 +147,7 @@ const DateRangePicker = ({
       onChange({
         date: null,
         startDate: _moment(),
-        endDate: null,
+        endDate: _moment(),
         selecting: true,
         displayedDate: _moment(),
       });
